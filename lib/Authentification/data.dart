@@ -1,6 +1,6 @@
-import 'package:plant_app/models/cart_item.dart';
-import 'package:plant_app/models/plant.dart';
-import 'package:plant_app/models/recently_viewed.dart';
+import 'models/cart_item.dart';
+import 'models/plant.dart';
+import 'models/recently_viewed.dart';
 
 List<Plant> recommended = [
   Plant(

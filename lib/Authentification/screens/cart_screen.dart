@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/data.dart';
-import 'package:plant_app/models/cart_item.dart';
+import 'package:plant_app/Authentification/constants.dart';
+import 'package:plant_app/Authentification/data.dart';
+import 'package:plant_app/Authentification/models/cart_item.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);

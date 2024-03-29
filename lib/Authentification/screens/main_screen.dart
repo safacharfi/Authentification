@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/components/bottom_nav_bar.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/screens/cart_screen.dart';
-import 'package:plant_app/screens/home_screen.dart';
+import 'package:plant_app/Authentification/components/bottom_nav_bar.dart';
+import 'package:plant_app/Authentification/constants.dart';
+import 'package:plant_app/Authentification/screens/cart_screen.dart';
+import 'package:plant_app/Authentification/screens/home_screen.dart';
+import '/Authentification/profile/profile.dart'; // Importez la page de profil
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+  MyHomePage(title: "Mon profil"), // Ajoutez la page de profil à la liste des écrans
   ];
 
   @override

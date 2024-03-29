@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/components/curve.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/data.dart';
-import 'package:plant_app/screens/plant_details_screen.dart';
+import 'package:plant_app/Authentification/components/curve.dart';
+import 'package:plant_app/Authentification/constants.dart';
+import 'package:plant_app/Authentification/data.dart';
+import 'package:plant_app/Authentification/screens/plant_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

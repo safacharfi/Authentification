@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/components/authentication_button.dart';
-import 'package:plant_app/components/custom_text_field.dart';
-import 'package:plant_app/components/curve.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/screens/main_screen.dart';
-import 'package:plant_app/screens/signup_screen.dart';
-import '/screens/UserLinking.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../components/authentication_button.dart';
+import '../components/custom_text_field.dart';
+import '../components/curve.dart';
+import '../constants.dart';
+import '../screens/main_screen.dart';
+import '../screens/signup_screen.dart';
+import '../screens/UserLinking.dart';
 import 'package:provider/provider.dart';
-import '/screens/home_screen.dart';
+import '../screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -32,8 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    UserController contactsController =
-        Provider.of<UserController>(context);
+    UserController contactsController = Provider.of<UserController>(context);
 
     return Material(
       child: Stack(
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ClipPath(
             clipper: ImageClipper(),
             child: Image.asset(
-              'images/leaves.jpg',
+              'images/car.png',
               alignment: Alignment.topCenter,
               fit: BoxFit.fitWidth,
             ),
@@ -85,9 +85,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Text(
                             'Welcome Back',
+                            style: GoogleFonts.courgette(),
                           ),
                           Text(
                             'Login to your account',
+                            style: GoogleFonts.courgette(
+                              fontSize: 24, // Set the desired font size
+                            ),
                           )
                         ],
                       ),
@@ -113,43 +117,27 @@ class _LoginScreenState extends State<LoginScreen> {
                             keyboardType: TextInputType.visiblePassword,
                             onChanged: (value) {},
                           ),
-
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Row(
-                                  children: [
-                                    Checkbox(
-                                      checkColor: Colors.white,
-                                      fillColor: MaterialStateProperty.all(
-                                          kDarkGreenColor),
-                                      value: rememberMe,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          rememberMe = value!;
-                                        });
-                                      },
-                                    ),
-                                    Text(
-                                      'Remember Me',
-                                      style: TextStyle(
-                                        color: kGreyColor,
-                                        fontSize: 14.0,
-                                      ),
-                                    )
-                                  ],
+                                Checkbox(
+                                  checkColor: Colors.white,
+                                  fillColor: MaterialStateProperty.all(
+                                      kDarkGreenColor),
+                                  value: rememberMe,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      rememberMe = value!;
+                                    });
+                                  },
                                 ),
-                                TextButton(
-                                  onPressed: () {},
-                                  style: ButtonStyle(
-                                    foregroundColor: MaterialStateProperty.all(
-                                        kDarkGreenColor),
-                                  ),
-                                  child: const Text(
-                                    'Forgot Password ?',
+                                Text(
+                                  'Remember Me',
+                                  style: TextStyle(
+                                    color: kGreyColor,
+                                    fontSize: 14.0,
                                   ),
                                 )
                               ],
@@ -183,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => HomeScreen()),
+                                          builder: (context) => MainScreen()),
                                     );
                                   } else {
                                     // Show an alert in case of login failure
@@ -224,13 +212,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                           MaterialStateProperty.all(
                                               kDarkGreenColor),
                                     ),
-onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => SignupScreen()),
-  );
-},
-
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                SignupScreen()),
+                                      );
+                                    },
                                     child: const Text(
                                       'Sign up',
                                       style: TextStyle(fontSize: 14.0),

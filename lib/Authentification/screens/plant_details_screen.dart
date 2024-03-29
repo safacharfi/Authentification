@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/models/plant.dart';
+import 'package:plant_app/Authentification/constants.dart';
+import 'package:plant_app/Authentification/models/plant.dart';
 
 class PlantDetails extends StatefulWidget {
   const PlantDetails({required this.plant, Key? key}) : super(key: key);

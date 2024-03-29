@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/screens/cart_screen.dart';
-import 'package:plant_app/screens/home_screen.dart';
-import 'package:plant_app/screens/login_screen.dart';
-import 'package:plant_app/screens/main_screen.dart';
-import 'package:plant_app/screens/signup_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:plant_app/Authentification/screens/cart_screen.dart';
+import 'package:plant_app/Authentification/screens/home_screen.dart';
+import 'package:plant_app/Authentification/screens/login_screen.dart';
+import 'package:plant_app/Authentification/screens/main_screen.dart';
 import 'package:provider/provider.dart';
-import '/screens/UserLinking.dart'; // Importer le UserController
+import '/Authentification/screens/UserLinking.dart'; // Importer le UserController
+import '/Authentification/screens/login_screen.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => UserController(), // Initialiser le UserController en tant que Provider
-      child: const MyApp(),
+      create: (context) => UserController(),
+      child: ScreenUtilInit(
+        designSize: Size(375, 812), // Mettez la taille de l'écran que vous utilisez dans votre design
+        builder: (BuildContext context, Widget? widget) => const MyApp(), // Utiliser une fonction qui respecte la signature attendue
+      ),
     ),
   );
 }

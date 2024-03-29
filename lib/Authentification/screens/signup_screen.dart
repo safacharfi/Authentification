@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/components/authentication_button.dart';
-import 'package:plant_app/components/custom_text_field.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/screens/login_screen.dart';
-import '/screens/User.dart';
-import '/screens/UserLinking.dart';
+import '../components/authentication_button.dart';
+import '../components/custom_text_field.dart';
+import '../constants.dart';
+import '../screens/login_screen.dart';
+import '../screens/User.dart';
+import '../screens/UserLinking.dart';
 import 'package:provider/provider.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class SignupScreen extends StatefulWidget {
   final User? user;
-  
+
   SignupScreen({this.user, Key? key}) : super(key: key);
 
   @override
@@ -21,20 +21,19 @@ class _SignupScreenState extends State<SignupScreen> {
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   late TextEditingController _passwordController;
-    late UserController contactsController; // Ajoutez cette ligne
-
+  late UserController contactsController;
 
   @override
   void initState() {
     super.initState();
     _nameController = TextEditingController(text: widget.user?.name ?? '');
     _phoneController = TextEditingController(text: widget.user?.phone ?? '');
-    _passwordController = TextEditingController(text: widget.user?.password ?? '');
-        contactsController = UserController(); // Remplacez par l'initialisation réelle
-
+    _passwordController =
+        TextEditingController(text: widget.user?.password ?? '');
+    contactsController = UserController();
   }
 
-  handleSignUp()  async {
+  handleSignUp() async {
     User user = User(
       '0',
       name: _nameController.text,
@@ -42,7 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
       phone: _phoneController.text,
     );
     await contactsController.addUser(user);
-    // Une fois l'inscription terminée, naviguez vers la page de connexion
+
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -51,9 +50,9 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-  UserController contactsController = Provider.of<UserController>(context);
+    UserController contactsController = Provider.of<UserController>(context);
 
-  return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('Sign Up'),
         backgroundColor: kDarkGreenColor,
@@ -64,12 +63,21 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Register',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              SizedBox(height: 20), // Added vertical space
+              Image.asset(
+                '../../../images/signup.png',
+                height: 300, // Adjust the height as needed
+                width: 300, // Adjust the width as needed
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 20), // Added vertical space
+              Text(
+                'Start your journey with Spotipark',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.courgette(
+                  fontSize: 24,
+                ),
+              ),
+              SizedBox(height: 20), // Added vertical space
               TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
@@ -77,7 +85,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   icon: Icon(Icons.person),
                 ),
               ),
-              SizedBox(height: 10.0),
               TextField(
                 controller: _phoneController,
                 decoration: InputDecoration(
@@ -85,7 +92,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   icon: Icon(Icons.phone),
                 ),
               ),
-              SizedBox(height: 10.0),
               TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(
@@ -94,7 +100,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 obscureText: true,
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 40), // More vertical space added
               AuthenticationButton(
                 label: 'Sign Up',
                 onPressed: handleSignUp,

@@ -1,4 +1,4 @@
-import 'package:plant_app/models/plant.dart';
+import 'package:plant_app/Authentification/models/plant.dart';
 
 class CartItem {
   final Plant plant;
